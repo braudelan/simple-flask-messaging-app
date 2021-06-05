@@ -56,5 +56,6 @@ def message(message_id): # make sure user is allowed
         message.delete()
         return "ok"
 
-app.run(debug=True)
+if __name__ == "__main__":
+    app.run(debug=True)
 
