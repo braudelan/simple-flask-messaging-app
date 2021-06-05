@@ -37,6 +37,9 @@ def write_message():
         return f"Message sent! sender is {sender.username}"
 
     elif request.method == "GET":
+        import os
+        print("-----")
+        print(os.environ.get("DATABASE"))
         user = auth.current_user()
         which_messages = request.values.get('which', 'all')
         if which_messages == 'all': 
