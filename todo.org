@@ -1,0 +1,7 @@
+
++ all handlers should be in the context of current user
+  + GET and DELETE message must check if user is allowed. 
+  + GET all messages in the context of the current users. dont use query params.
+
++ hash password
++ postman collection    

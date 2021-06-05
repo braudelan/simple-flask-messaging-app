@@ -37,7 +37,7 @@ def write_message():
         return f"Message sent! sender is {sender.username}"
 
     elif request.method == "GET":
-        user = request.values.get('userID')
+        user = request.values.get('userID') # current user
         which_messages = request.values.get('which')
         if which_messages == 'all': 
             messages = select(m for m in Message if m.sender.id == user or m.reciever.id == user) # filter on this variable
@@ -47,7 +47,7 @@ def write_message():
         return make_response(jsonify(messages))
 
 @app.route("/messages/<message_id>/", methods=["GET", "DELETE"])
-def message(message_id):
+def message(message_id): # make sure user is allowed
     message = Message[message_id]
     if request.method == "GET":
         message = {'sender': message.sender.id, 'reciever': message.reciever.id, 'message': message.message, 'subject': message.subject, 'creation_date': str(message.creation_date),  'read': message.read}
