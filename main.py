@@ -41,9 +41,10 @@ def write_message():
         which_messages = request.values.get('which', 'all')
         if which_messages == 'all': 
             messages = select(m for m in Message if m.sender.id == user.id or m.reciever.id == user.id) # filter on this variable
+
         else:
             messages = select(m for m in Message if (m.sender.id == user.id or m.reciever.id == user.id) and (m.read == (which_messages == 'read')) )
-            messages = [{'sender': message.sender.id, 'reciever': message.reciever.id, 'message': message.message, 'subject': message.subject, 'creation_date': str(message.creation_date),  'read': message.read} for message in messages]
+        messages = [{'sender': message.sender.id, 'reciever': message.reciever.id, 'message': message.message, 'subject': message.subject, 'creation_date': str(message.creation_date),  'read': message.read} for message in messages]
         return make_response(jsonify(messages))
 
 @app.route("/messages/<message_id>/", methods=["GET", "DELETE"])
