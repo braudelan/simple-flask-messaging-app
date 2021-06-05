@@ -39,7 +39,7 @@ def write_message():
     elif request.method == "GET":
         import os
         print("-----")
-        print(os.environ.get("DATABASE"))
+        print(os.environ)
         user = auth.current_user()
         which_messages = request.values.get('which', 'all')
         if which_messages == 'all': 
