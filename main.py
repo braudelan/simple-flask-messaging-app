@@ -37,12 +37,12 @@ def write_message():
         return f"Message sent! sender is {sender.username}"
 
     elif request.method == "GET":
-        user = request.values.get('userID') # current user
-        which_messages = request.values.get('which')
+        user = auth.current_user()
+        which_messages = request.values.get('which', 'all')
         if which_messages == 'all': 
-            messages = select(m for m in Message if m.sender.id == user or m.reciever.id == user) # filter on this variable
+            messages = select(m for m in Message if m.sender.id == user.id or m.reciever.id == user.id) # filter on this variable
         else:
-            messages = select(m for m in Message if (m.sender.id == user or m.reciever.id == user) and (m.read == (which_messages == 'read')) )
+            messages = select(m for m in Message if (m.sender.id == user.id or m.reciever.id == user.id) and (m.read == (which_messages == 'read')) )
             messages = [{'sender': message.sender.id, 'reciever': message.reciever.id, 'message': message.message, 'subject': message.subject, 'creation_date': str(message.creation_date),  'read': message.read} for message in messages]
         return make_response(jsonify(messages))
 
