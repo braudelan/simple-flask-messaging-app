@@ -18,5 +18,10 @@ class Message(db.Entity):
     creation_date = Required(datetime, default=datetime.now)
     read = Required(bool, default=False)
 
-db.bind(provider='sqlite', filename='database.sqlite', create_db=True)
+db.bind(
+    provider='postgres',
+    user='sxptruajuhajbs',
+    password='da91448e50910a8cb5dcba92a7d9425830a91f97b91d0a4905e82857fd457b38',
+    host='ec2-52-45-179-101.compute-1.amazonaws.com',
+    database='d5d9qt1gc2o21j')
 db.generate_mapping(create_tables=True)
