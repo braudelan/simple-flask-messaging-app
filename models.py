@@ -5,7 +5,7 @@ from pony.orm import *
 db = Database()
 
 class User(db.Entity):
-    username = Required(str) # should be unique=True
+    username = Required(str, unique=True)
     password = Required(str)
     sent_messages = Set('Message', reverse='sender')
     recieved_messages = Set('Message', reverse='reciever')
