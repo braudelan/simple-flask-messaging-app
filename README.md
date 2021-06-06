@@ -3,6 +3,7 @@
 
 ---
 * The app is hosted on [https://braudelan-messaging.herokuapp.com/](https://braudelan-messaging.herokuapp.com/)
+* [](https://www.getpostman.com/collections/1e55cd395ddf4e1b245c)
 * [examples.postman_collection.json](examples.postman_collection.json) contains examples of the different requests that can be made with the app.
 
 ## Rules
