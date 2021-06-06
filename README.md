@@ -8,6 +8,6 @@
 ## Rules
 * Messages can only be sent by a logged-in user (authorized).
 * Getting messegas, either by filtering or by specific message id, will only return messages associated with the logged-in user (as sender or as receiver).
-* A Message can only be deleted by its' sender or reciever.
+* A Message can only be deleted by its' sender or receiver.
 
 
