@@ -3,7 +3,7 @@
 
 ---
 * The app is hosted on [https://braudelan-messaging.herokuapp.com/](https://braudelan-messaging.herokuapp.com/)
-* [examples.postman_collection.json](simple-flask-messaging-app/examples.postman_collection.json) contains examples of the different requests that can be made with the app.
+* [examples.postman_collection.json](/simple-flask-messaging-app/examples.postman_collection.json) contains examples of the different requests that can be made with the app.
 
 ## Rules
 * Messages can only be sent by a logged-in user (authorized).
